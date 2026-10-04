@@ -1,13 +1,21 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { existsSync } from 'node:fs'
 
 const outputDirectory = resolve('dist')
+const cnamePath = resolve('public', 'CNAME')
+const cnameDomain = existsSync(cnamePath)
+  ? (await readFile(cnamePath, 'utf8')).trim()
+  : ''
+const customDomain = process.env.VITE_CUSTOM_DOMAIN?.trim() || cnameDomain
 const repository = process.env.GITHUB_REPOSITORY?.split('/')
 const githubPagesUrl =
   process.env.GITHUB_ACTIONS === 'true' && repository?.length === 2
     ? `https://${repository[0]}.github.io/${repository[1]}/`
     : undefined
-const configuredSiteUrl = process.env.VITE_SITE_URL?.trim() || githubPagesUrl
+const configuredSiteUrl =
+  process.env.VITE_SITE_URL?.trim() ||
+  (customDomain ? `https://${customDomain}/` : githubPagesUrl)
 
 if (!configuredSiteUrl) {
   console.warn(
@@ -28,7 +36,6 @@ if (!siteUrl.pathname.endsWith('/')) {
   siteUrl.pathname += '/'
 }
 
-const customDomain = process.env.VITE_CUSTOM_DOMAIN?.trim()
 if (customDomain && siteUrl.hostname !== customDomain) {
   throw new Error('VITE_CUSTOM_DOMAIN must match the hostname in VITE_SITE_URL.')
 }
