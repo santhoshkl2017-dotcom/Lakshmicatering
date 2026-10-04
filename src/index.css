@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+  font-family: 'DM Sans', 'Noto Sans Kannada', sans-serif;
+  color: #293329;
+  background: #faf8f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --cream: #faf8f0;
+  --cream-deep: #f1eee3;
+  --green: #243d2e;
+  --green-light: #42634a;
+  --gold: #c7a154;
+  --gold-dark: #9a7836;
+  --ink-soft: #6d7168;
+  --line: #e6e1d3;
+  --serif: 'Playfair Display', 'Noto Serif Kannada', Georgia, serif;
+
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #d8c99e;
+  color: #243d2e;
+}
+
+:focus-visible {
+  outline: 2px solid #9a7836;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
