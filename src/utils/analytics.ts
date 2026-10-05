@@ -24,13 +24,18 @@ export function initializeAnalytics(measurementId: string | undefined) {
     return
   }
 
+  if (document.getElementById('google-analytics-script')) {
+    return
+  }
+
   window.dataLayer ??= []
   const gtag = (...args: unknown[]) => window.dataLayer?.push(args)
   window.gtag = gtag
   gtag('js', new Date())
-  gtag('config', measurementId, { anonymize_ip: true })
+  gtag('config', measurementId, { anonymize_ip: true, send_page_view: true })
 
   const script = document.createElement('script')
+  script.id = 'google-analytics-script'
   script.async = true
   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
   script.onerror = () => {
