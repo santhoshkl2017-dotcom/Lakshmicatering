@@ -21,6 +21,7 @@ const copy = {
     vision: 'Our vision',
     contact: 'Contact',
     language: 'ಕನ್ನಡ',
+    whatsappDirect: 'WhatsApp us',
     eyebrow: 'HOME MADE · 100% PURE VEG',
     heroTitle: 'Homemade Pure Vegetarian Food, Made With Love.',
     heroText:
@@ -29,12 +30,12 @@ const copy = {
     getQuote: 'Get catering quote',
     viewMenu: 'View menu',
     whatsapp: 'Join WhatsApp group',
-    peopleRange: 'Catering for 2 to 100 people',
+    peopleRange: 'Daily meals & bulk orders',
     trustItems: [
       '100% Vegetarian',
       'Homemade taste',
       'Fresh & hygienic',
-      '2–100 people',
+      'Bulk orders welcome',
       'Around 5 km',
       'Made with care',
     ],
@@ -54,7 +55,7 @@ const copy = {
     servicesTitle: 'Good food for every kind of day.',
     dailyCateringTitle: 'Fresh homely food, every day.',
     dailyCateringText:
-      'Freshly prepared vegetarian meals with the comfort of homemade taste. For two people, your family, an office team or a regular group.',
+      'Freshly prepared vegetarian meals with the comfort of homemade taste for families, office teams and regular daily orders.',
     dailyCategories: [
       'Breakfast',
       'Lunch',
@@ -80,10 +81,10 @@ const copy = {
     dailyButton: 'Enquire for daily meals',
     eventButton: 'Get event catering quote',
     cuisinesEyebrow: 'OUR CUISINES',
-    servingEyebrow: 'SMALL OR BIG, YOU’RE WELCOME',
-    servingTitle: 'From 2 to 100 people.',
+    servingEyebrow: 'DAILY MEALS & BULK ORDERS',
+    servingTitle: 'We Take Bulk Orders',
     servingText:
-      'Whether it is a meal for your family or catering for a special occasion, we serve fresh, hygienic and homely vegetarian food. Serving Chunchghatta and surrounding areas; contact us to check availability for your location.',
+      'Fresh, hygienic and homely vegetarian food for daily meals, family gatherings, functions and special occasions. Serving Chunchghatta and surrounding areas. Contact us to check availability for your location.',
     servingButton: 'Plan your order',
     menuEyebrow: 'A MENU FOR YOUR TABLE',
     menuTitle: 'Meals planned around your day.',
@@ -146,7 +147,7 @@ const copy = {
     contactEyebrow: 'LET’S TALK FOOD',
     contactTitle: 'Tell us what you’re celebrating.',
     contactText:
-      'Share your date, guest count, food preferences and location. We’ll help you plan a menu for 2 to 100 people.',
+      'Share your date, guest count, food preferences and location. We’ll help you plan a menu for your daily meal or special occasion.',
     callNow: 'Call now',
     directions: 'Get directions',
     mapLabel: 'Find us on Google Maps',
@@ -167,6 +168,7 @@ const copy = {
     vision: 'ನಮ್ಮ ದೃಷ್ಟಿ',
     contact: 'ಸಂಪರ್ಕ',
     language: 'English',
+    whatsappDirect: 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ',
     eyebrow: 'ಮನೆಯಲ್ಲಿ ತಯಾರಿಸಿದ್ದು · 100% ಶುದ್ಧ ಸಸ್ಯಾಹಾರ',
     heroTitle: 'ಪ್ರೀತಿಯಿಂದ ತಯಾರಿಸಿದ ಮನೆಯ ಶುದ್ಧ ಸಸ್ಯಾಹಾರಿ ಊಟ.',
     heroText:
@@ -175,12 +177,12 @@ const copy = {
     getQuote: 'ಕ್ಯಾಟರಿಂಗ್ ಅಂದಾಜು ಪಡೆಯಿರಿ',
     viewMenu: 'ಮೆನು ನೋಡಿ',
     whatsapp: 'ವಾಟ್ಸಾಪ್ ಗುಂಪಿಗೆ ಸೇರಿ',
-    peopleRange: '2 ರಿಂದ 100 ಜನರಿಗೆ ಕ್ಯಾಟರಿಂಗ್',
+    peopleRange: 'ದಿನನಿತ್ಯದ ಊಟ ಮತ್ತು ದೊಡ್ಡ ಪ್ರಮಾಣದ ಆರ್ಡರ್‌ಗಳು',
     trustItems: [
       '100% ಸಸ್ಯಾಹಾರ',
       'ಮನೆಯ ರುಚಿ',
       'ತಾಜಾ ಮತ್ತು ಶುಚಿ',
-      '2–100 ಜನ',
+      'ದೊಡ್ಡ ಪ್ರಮಾಣದ ಆರ್ಡರ್‌ಗಳು',
       'ಸುಮಾರು 5 ಕಿ.ಮೀ.',
       'ಪ್ರೀತಿಯ ತಯಾರಿ',
     ],
@@ -200,7 +202,7 @@ const copy = {
     servicesTitle: 'ಪ್ರತಿ ದಿನಕ್ಕೂ ರುಚಿಯಾದ ಊಟ.',
     dailyCateringTitle: 'ಪ್ರತಿದಿನ ತಾಜಾ ಮನೆಯೂಟ.',
     dailyCateringText:
-      'ಮನೆಯ ರುಚಿಯೊಂದಿಗೆ ತಾಜಾವಾಗಿ ತಯಾರಿಸಿದ ಸಸ್ಯಾಹಾರಿ ಊಟ. ಇಬ್ಬರಿಗೆ, ನಿಮ್ಮ ಕುಟುಂಬಕ್ಕೆ, ಕಚೇರಿ ತಂಡಕ್ಕೆ ಅಥವಾ ನಿಯಮಿತ ಕೂಟಕ್ಕೆ.',
+      'ಮನೆಯ ರುಚಿಯೊಂದಿಗೆ ತಾಜಾವಾಗಿ ತಯಾರಿಸಿದ ಸಸ್ಯಾಹಾರಿ ಊಟ. ಕುಟುಂಬದ ಊಟದಿಂದ ಕಚೇರಿ ತಂಡ ಮತ್ತು ನಿಯಮಿತ ಆರ್ಡರ್‌ಗಳವರೆಗೆ.',
     dailyCategories: [
       'ಉಪಾಹಾರ',
       'ಮಧ್ಯಾಹ್ನದ ಊಟ',
@@ -226,10 +228,10 @@ const copy = {
     dailyButton: 'ದಿನನಿತ್ಯದ ಊಟಕ್ಕಾಗಿ ವಿಚಾರಿಸಿ',
     eventButton: 'ಸಮಾರಂಭದ ಕ್ಯಾಟರಿಂಗ್ ವಿಚಾರಿಸಿ',
     cuisinesEyebrow: 'ನಮ್ಮ ಅಡುಗೆಗಳು',
-    servingEyebrow: 'ಸಣ್ಣದಾಗಲಿ ದೊಡ್ಡದಾಗಲಿ, ಸ್ವಾಗತ',
-    servingTitle: '2 ರಿಂದ 100 ಜನರಿಗೆ.',
+    servingEyebrow: 'ದಿನನಿತ್ಯದ ಊಟ ಮತ್ತು ದೊಡ್ಡ ಪ್ರಮಾಣದ ಆರ್ಡರ್‌ಗಳು',
+    servingTitle: 'ದೊಡ್ಡ ಪ್ರಮಾಣದ ಆರ್ಡರ್‌ಗಳನ್ನು ಸ್ವೀಕರಿಸುತ್ತೇವೆ',
     servingText:
-      'ನಿಮ್ಮ ಕುಟುಂಬದ ಊಟವಾಗಲಿ ಅಥವಾ ವಿಶೇಷ ಸಮಾರಂಭದ ಕ್ಯಾಟರಿಂಗ್ ಆಗಲಿ, ತಾಜಾ, ಶುಚಿಯಾದ ಮತ್ತು ಮನೆಯ ರುಚಿಯ ಸಸ್ಯಾಹಾರಿ ಅಡುಗೆ ನೀಡುತ್ತೇವೆ. ಚುಂಚಘಟ್ಟ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶಗಳಲ್ಲಿ ಸೇವೆ; ನಿಮ್ಮ ಸ್ಥಳಕ್ಕೆ ಲಭ್ಯತೆ ವಿಚಾರಿಸಿ.',
+      'ದಿನನಿತ್ಯದ ಊಟ, ಕುಟುಂಬದ ಕೂಟ, ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ವಿಶೇಷ ಸಂದರ್ಭಗಳಿಗಾಗಿ ತಾಜಾ, ಶುಚಿಯಾದ ಹಾಗೂ ಮನೆಯ ರುಚಿಯ ಸಸ್ಯಾಹಾರಿ ಅಡುಗೆ. ಚುಂಚಘಟ್ಟ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶಗಳಲ್ಲಿ ಸೇವೆ. ನಿಮ್ಮ ಸ್ಥಳಕ್ಕೆ ಲಭ್ಯತೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ.',
     servingButton: 'ನಿಮ್ಮ ಆರ್ಡರ್ ಯೋಜಿಸಿ',
     menuEyebrow: 'ನಿಮ್ಮ ಊಟದ ಮೆನು',
     menuTitle: 'ನಿಮ್ಮ ದಿನಕ್ಕೆ ತಕ್ಕ ಊಟದ ಯೋಜನೆ.',
@@ -292,7 +294,7 @@ const copy = {
     contactEyebrow: 'ಊಟದ ಬಗ್ಗೆ ಮಾತನಾಡೋಣ',
     contactTitle: 'ನಿಮ್ಮ ಸಂಭ್ರಮದ ಬಗ್ಗೆ ತಿಳಿಸಿ.',
     contactText:
-      'ದಿನಾಂಕ, ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ, ಆಹಾರದ ಆಯ್ಕೆ ಮತ್ತು ಸ್ಥಳ ತಿಳಿಸಿ. 2 ರಿಂದ 100 ಜನರಿಗೆ ಮೆನು ಯೋಜಿಸಲು ನೆರವಾಗುತ್ತೇವೆ.',
+      'ದಿನಾಂಕ, ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ, ಆಹಾರದ ಆಯ್ಕೆ ಮತ್ತು ಸ್ಥಳ ತಿಳಿಸಿ. ನಿಮ್ಮ ದಿನನಿತ್ಯದ ಊಟ ಅಥವಾ ವಿಶೇಷ ಸಂದರ್ಭಕ್ಕೆ ತಕ್ಕ ಮೆನು ಯೋಜಿಸಲು ನೆರವಾಗುತ್ತೇವೆ.',
     callNow: 'ಈಗ ಕರೆ ಮಾಡಿ',
     directions: 'ದಾರಿ ನೋಡಿ',
     mapLabel: 'ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ನೋಡಿ',
@@ -305,6 +307,14 @@ const copy = {
 } as const
 
 const whatsappUrl = business.whatsappGroupInvite
+const bulkOrderWhatsappUrl = (language: Language) => {
+  const message =
+    language === 'kn'
+      ? 'ನಮಸ್ಕಾರ ಲಕ್ಷ್ಮಿ ಕ್ಯಾಟರಿಂಗ್ ಸರ್ವೀಸಸ್ 🙏\n\nದೊಡ್ಡ ಪ್ರಮಾಣದ ಆಹಾರದ ಆರ್ಡರ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಲು ಬಯಸುತ್ತೇನೆ.\n\nದಿನಾಂಕ:\nಜನರ ಸಂಖ್ಯೆ:\nಸ್ಥಳ:\nಆಹಾರದ ಆಯ್ಕೆ:\nಅಗತ್ಯ:\n\nಲಭ್ಯವಿರುವ ಮೆನು ಮತ್ತು ದರದ ವಿವರಗಳನ್ನು ತಿಳಿಸಿ.'
+      : 'Namaste Lakshmi Catering Services 🙏\n\nI would like to enquire about a bulk food order.\n\nDate:\nNumber of people:\nLocation:\nFood preference:\nRequirement:\n\nPlease share the available menu and quotation.'
+
+  return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(message)}`
+}
 
 const mapsSearchUrl = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
@@ -354,7 +364,7 @@ function App() {
 
         if (link.href.startsWith('tel:')) {
           trackEvent('phone_click')
-        } else if (link.href.includes('chat.whatsapp.com')) {
+        } else if (link.href.includes('chat.whatsapp.com') || link.href.includes('wa.me')) {
           const eventName = link.dataset.analyticsEvent
           trackEvent(analyticsEvents[eventName ?? ''] ?? 'whatsapp_click')
         } else if (link.href.includes('google.com/maps')) {
@@ -408,10 +418,10 @@ function App() {
           <h1>{t.heroTitle}</h1>
           <p>{t.heroText}</p>
           <div className="hero-actions">
-            <a className="button" data-analytics-event="daily_catering_enquiry" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <a className="button" data-analytics-event="daily_catering_enquiry" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
               {t.orderDaily}<span aria-hidden="true">↗</span>
             </a>
-            <a className="text-link" data-analytics-event="event_catering_enquiry" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <a className="text-link" data-analytics-event="event_catering_enquiry" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
               {t.getQuote}<span aria-hidden="true">→</span>
             </a>
           </div>
@@ -470,7 +480,7 @@ function App() {
               <div className="service-chip-list">
                 {t.dailyCategories.map((category) => <span key={category}>{category}</span>)}
               </div>
-              <a className="button" data-analytics-event="daily_catering_enquiry" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <a className="button" data-analytics-event="daily_catering_enquiry" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
                 {t.dailyButton}<span aria-hidden="true">↗</span>
               </a>
             </article>
@@ -482,7 +492,7 @@ function App() {
               <div className="service-chip-list">
                 {t.eventCategories.map((category) => <span key={category}>{category}</span>)}
               </div>
-              <a className="button" data-analytics-event="event_catering_enquiry" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <a className="button" data-analytics-event="event_catering_enquiry" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
                 {t.eventButton}<span aria-hidden="true">↗</span>
               </a>
             </article>
@@ -490,7 +500,7 @@ function App() {
           <div className="serving-note">
             <span className="serving-icon" aria-hidden="true">✳</span>
             <div><span>{t.servingEyebrow}</span><h3>{t.servingTitle}</h3><p>{t.servingText}</p></div>
-            <a className="button" data-analytics-event="daily_catering_enquiry" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <a className="button" data-analytics-event="daily_catering_enquiry" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
               {t.servingButton}<span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -525,7 +535,7 @@ function App() {
         <div className="menu-category-list">
           {t.menuCategories.map((category) => <span key={category}>{category}</span>)}
         </div>
-        <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">
+        <a className="button" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
           {t.orderDaily}<span aria-hidden="true">↗</span>
         </a>
       </section>
@@ -658,8 +668,8 @@ function App() {
           <h2>{t.contactTitle}</h2>
           <p>{t.contactText}</p>
           <div className="contact-actions">
-            <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">
-              {t.whatsapp}<span aria-hidden="true">↗</span>
+            <a className="button" data-analytics-event="event_catering_enquiry" href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer">
+              {t.whatsappDirect}<span aria-hidden="true">↗</span>
             </a>
             <a className="text-link" href={`tel:${business.phone}`}>{t.callNow}<span aria-hidden="true">→</span></a>
           </div>
@@ -700,17 +710,17 @@ function App() {
 
       <a
         className="whatsapp-float"
-        href={whatsappUrl}
+        href={bulkOrderWhatsappUrl(language)}
         target="_blank"
         rel="noreferrer"
-        aria-label={t.whatsapp}
+        aria-label={t.whatsappDirect}
       >
-        <span aria-hidden="true">◉</span>{t.whatsapp}
+        <span aria-hidden="true">◉</span>{t.whatsappDirect}
       </a>
 
       <nav className="mobile-action-bar" aria-label="Quick actions">
         <a href={`tel:${business.phone}`}><span aria-hidden="true">☎</span>{t.callNow}</a>
-        <a href={whatsappUrl} target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span>{t.whatsapp}</a>
+        <a href={bulkOrderWhatsappUrl(language)} target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span>{t.whatsappDirect}</a>
         <a href={directionsUrl} target="_blank" rel="noreferrer"><span aria-hidden="true">⌖</span>{t.directions}</a>
       </nav>
     </main>

@@ -11,8 +11,6 @@ export const business = {
     pincode: '560062',
   },
   serviceRadius: 'Approximately 5 km',
-  minPeople: 2,
-  maxPeople: 100,
   vegetarian: true,
   cuisines: ['South Indian', 'North Indian', 'Chinese'],
 } as const

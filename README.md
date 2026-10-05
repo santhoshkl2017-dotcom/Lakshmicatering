@@ -21,9 +21,9 @@ npm run lint
 ## Website features
 
 - English and Kannada language switcher; the selected language is remembered in browser storage.
-- Daily meals and event catering enquiries for orders of 2–100 people.
+- Daily meals and bulk event catering enquiries.
 - Homemade product information and the supplied premix prices.
-- WhatsApp links that open the supplied Lakshmi Catering Services group invite; phone links still call the business directly.
+- Bulk meal and event catering enquiries open a direct WhatsApp chat; product and group links open the supplied Lakshmi Catering Services group invite.
 - Tap-to-call, directions and an embedded Google Maps search.
 - Local copies of the supplied logo and photos in `public/images/`.
 - Static SEO metadata and local-business structured data. A canonical URL, absolute social image URLs, sitemap and sitemap reference in `robots.txt` are generated when the site URL is configured.
