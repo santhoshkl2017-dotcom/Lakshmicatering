@@ -9,7 +9,7 @@ export type AnalyticsEvent =
 
 declare global {
   interface Window {
-    dataLayer?: unknown[][]
+    dataLayer?: unknown[]
     gtag?: (...args: unknown[]) => void
   }
 }
@@ -29,7 +29,9 @@ export function initializeAnalytics(measurementId: string | undefined) {
   }
 
   window.dataLayer ??= []
-  const gtag = (...args: unknown[]) => window.dataLayer?.push(args)
+  const gtag = function (..._args: unknown[]) {
+    window.dataLayer?.push(arguments)
+  }
   window.gtag = gtag
   gtag('js', new Date())
   gtag('config', measurementId, { anonymize_ip: true, send_page_view: true })
