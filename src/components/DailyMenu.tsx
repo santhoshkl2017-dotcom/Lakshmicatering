@@ -14,6 +14,7 @@ const today = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kol
 export function DailyMenu() {
   const [items, setItems] = useState<MenuItem[]>([])
   const [loading, setLoading] = useState(supabaseIsConfigured)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (!supabase) return
@@ -23,8 +24,9 @@ export function DailyMenu() {
       .eq('menu_date', today())
       .eq('is_available', true)
       .order('sort_order')
-      .then(({ data }) => {
+      .then(({ data, error: queryError }) => {
         setItems(data ?? [])
+        setError(queryError?.message ?? '')
         setLoading(false)
       })
   }, [])
@@ -39,7 +41,8 @@ export function DailyMenu() {
         <p>Check today’s homemade vegetarian dishes and order on WhatsApp while they are available.</p>
       </div>
       {loading && <p className="menu-status">Loading today’s menu…</p>}
-      {!loading && items.length === 0 && (
+      {!loading && error && <p className="menu-status">Today&rsquo;s menu is temporarily unavailable. Please contact us for availability.</p>}
+      {!loading && !error && items.length === 0 && (
         <p className="menu-status">Today’s menu will be updated soon. Please contact us for availability.</p>
       )}
       {items.length > 0 && (

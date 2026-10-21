@@ -327,10 +327,7 @@ const analyticsEvents: Record<string, AnalyticsEvent> = {
   product_enquiry: 'product_enquiry',
 }
 
-function App() {
-  if (window.location.pathname.replace(/\/$/, '') === '/admin') {
-    return <Admin />
-  }
+function Site() {
   const [language, setLanguage] = useState<Language>(() =>
     window.localStorage.getItem('lakshmi-language') === 'kn' ? 'kn' : 'en',
   )
@@ -732,6 +729,10 @@ function App() {
       </nav>
     </main>
   )
+}
+
+function App() {
+  return window.location.pathname.replace(/\/$/, '') === '/admin' ? <Admin /> : <Site />
 }
 
 export default App
