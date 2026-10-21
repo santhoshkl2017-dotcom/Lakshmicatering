@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { business, fullAddress } from './data/business'
 import { initializeAnalytics, trackEvent, type AnalyticsEvent } from './utils/analytics'
+import { DailyMenu } from './components/DailyMenu'
+import { Admin } from './components/Admin'
 import './App.css'
 
 type Language = 'en' | 'kn'
@@ -326,6 +328,9 @@ const analyticsEvents: Record<string, AnalyticsEvent> = {
 }
 
 function App() {
+  if (window.location.pathname.replace(/\/$/, '') === '/admin') {
+    return <Admin />
+  }
   const [language, setLanguage] = useState<Language>(() =>
     window.localStorage.getItem('lakshmi-language') === 'kn' ? 'kn' : 'en',
   )
@@ -453,6 +458,8 @@ function App() {
           <div className="trust-item" key={item}><span aria-hidden="true">{['🌿', '⌂', '✳', '♡', '⌖', '✦'][index]}</span>{item}</div>
         ))}
       </section>
+
+      <DailyMenu />
 
       <section className="intro section-wrap" id="about">
         <div className="section-kicker"><span>01</span>{t.aboutEyebrow}</div>
