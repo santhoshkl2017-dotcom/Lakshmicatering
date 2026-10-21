@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import { supabase, supabaseIsConfigured } from '../lib/supabase'
+import { formatMenuTab, todayInIndia, upcomingMenuDates } from '../utils/menuDates'
 
 type Item = { id: string; name: string; category: string | null; price: number | null; is_available: boolean }
 type DraftItem = { id: string; name: string; nameKn: string; category: string; categoryKn: string; price: string; image: File | null }
 
-const today = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
 const newDraft = (): DraftItem => ({ id: crypto.randomUUID(), name: '', nameKn: '', category: '', categoryKn: '', price: '', image: null })
 
 export function Admin() {
@@ -14,7 +14,8 @@ export function Admin() {
   const [password, setPassword] = useState('')
   const [signedIn, setSignedIn] = useState(false)
   const [authChecked, setAuthChecked] = useState(false)
-  const [date, setDate] = useState(today())
+  const [date, setDate] = useState(todayInIndia())
+  const weekDates = upcomingMenuDates()
   const [drafts, setDrafts] = useState<DraftItem[]>([newDraft()])
   const [items, setItems] = useState<Item[]>([])
   const [message, setMessage] = useState('')
@@ -135,6 +136,9 @@ export function Admin() {
       <div className="admin-heading">
         <div><p className="section-kicker"><span>OWNER</span>DAILY MENU</p><h1>Publish today&rsquo;s food</h1></div>
         <button className="text-button" onClick={() => client.auth.signOut().then(() => setSignedIn(false))}>Sign out</button>
+      </div>
+      <div className="admin-week-view" aria-label="Choose a menu date for this week">
+        {weekDates.map((weekDate) => { const tab = formatMenuTab(weekDate, 'en'); return <button className={weekDate === date ? 'active' : ''} type="button" key={weekDate} onClick={() => setDate(weekDate)}><span>{tab.day}</span><strong>{tab.date}</strong></button> })}
       </div>
       <label>Menu date<input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></label>
       <form onSubmit={publishItems} className="menu-form">
