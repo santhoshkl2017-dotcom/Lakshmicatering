@@ -4,24 +4,24 @@
 
 /* Daily menu and owner dashboard */
 .today-menu-section {
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .today-menu-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 32px;
+  margin-top: 0;
 }
 
-.today-menu-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; align-items: start; }
-.today-menu-group { min-width: 0; padding: 18px; border: 1px solid var(--line); background: #fffdf8; }
-.today-menu-group-heading { display: flex; align-items: center; gap: 14px; color: var(--orange, #b95924); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.today-menu-groups { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 28px; }
+.today-menu-group { min-width: 0; }
+.today-menu-group-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; color: var(--orange, #b95924); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
 .today-menu-group-line { height: 1px; flex: 1; background: var(--line); }
-.menu-date-tabs, .admin-week-view { display: flex; gap: 8px; margin-top: 28px; overflow-x: auto; scrollbar-width: none; }
+.menu-date-tabs, .admin-week-view { display: flex; gap: 7px; margin-top: 22px; overflow-x: auto; scrollbar-width: none; }
 .menu-date-tabs::-webkit-scrollbar, .admin-week-view::-webkit-scrollbar { display: none; }
-.menu-date-tabs button, .admin-week-view button { flex: 1 0 82px; display: grid; gap: 4px; padding: 12px 10px; border: 1px solid var(--line); background: var(--cream, #fffdf8); color: var(--ink); cursor: pointer; font: inherit; text-align: center; }
+.menu-date-tabs button, .admin-week-view button { flex: 1 1 0; display: grid; gap: 3px; min-width: 74px; padding: 9px 10px; border: 1px solid var(--green, #204733); border-radius: 999px; background: var(--cream, #fffdf8); color: var(--ink); cursor: pointer; font: inherit; text-align: center; }
 .menu-date-tabs button span, .admin-week-view button span { color: var(--orange, #b95924); font-size: 11px; font-weight: 700; }
 .menu-date-tabs button strong, .admin-week-view button strong { font-size: 14px; }
 .menu-date-tabs button.active, .admin-week-view button.active { border-color: var(--green, #204733); background: var(--green, #204733); color: #fffdf8; }
@@ -35,7 +35,7 @@
 
 .today-menu-card img {
   width: 100%;
-  height: 190px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
@@ -48,7 +48,7 @@
   place-items: center;
   align-content: center;
   gap: 8px;
-  min-height: 190px;
+  aspect-ratio: 16 / 10;
   background: linear-gradient(135deg, #e9e0cc, #d6e0d2);
   color: var(--green, #204733);
 }
@@ -64,9 +64,9 @@
 }
 .today-menu-card-meta em { color: var(--green, #204733); font-size: 11px; font-style: normal; font-weight: 700; }
 
-.today-menu-card h3 { margin: 8px 0; font-size: 24px; }
+.today-menu-card h3 { margin: 8px 0; font-size: 22px; line-height: 1.15; }
 .today-menu-card strong { font-size: 18px; }
-.today-menu-order { display: flex; justify-content: space-between; width: 100%; margin-top: 20px; }
+.today-menu-order { display: flex; justify-content: space-between; width: min(100%, 220px); margin-top: 18px; }
 .menu-status { margin-top: 26px; color: var(--ink-soft, #665f55); }
 .menu-status p { margin: 0 0 8px; }
 .menu-status .button { margin-top: 10px; }
@@ -101,11 +101,19 @@
 .admin-items article > div:last-child { display: flex; gap: 10px; }
 .danger-button { color: #a52d25 !important; }
 
+@media (max-width: 1000px) {
+  .today-menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 650px) {
   .today-menu-grid, .today-menu-groups, .menu-form { grid-template-columns: 1fr; }
   .menu-form-heading, .menu-form-row { grid-template-columns: 1fr; }
   .menu-form-heading { flex-direction: column; }
   .menu-form-row-heading { grid-column: 1; }
+  .menu-date-tabs { padding-bottom: 3px; }
+  .menu-date-tabs button { flex: 0 0 76px; min-width: 0; padding: 9px 8px; }
+  .today-menu-card > div { padding: 16px; }
+  .today-menu-order { width: 100%; }
   .today-menu-section { padding-top: 64px; padding-bottom: 64px; }
   .admin-page { padding: 34px 16px 96px; }
 }

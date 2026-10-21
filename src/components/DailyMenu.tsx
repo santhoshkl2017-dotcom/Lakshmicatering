@@ -23,7 +23,7 @@ const copy = {
   en: {
     eyebrow: 'WEEKLY MENU',
     heading: 'Fresh meals planned for the week.',
-    description: 'Choose a day, see the available breakfast, lunch and dinner options, and order directly on WhatsApp.',
+    description: 'Choose a day, explore the available meals, and order directly on WhatsApp.',
     loading: 'Loading this week\'s menu...',
     emptyDay: 'No menu published for this day yet.',
     emptyDaySecondary: 'Please check another day or contact us on WhatsApp.',
@@ -37,7 +37,7 @@ const copy = {
     lunch: 'Lunch',
     dinner: 'Dinner',
     other: 'Other',
-    placeholder: 'Freshly prepared with care',
+    placeholder: 'Freshly prepared',
   },
   kn: {
     eyebrow: '\u0cb5\u0cbe\u0cb0\u0ca6 \u0cae\u0cc6\u0ca8\u0cc1',
@@ -56,7 +56,7 @@ const copy = {
     lunch: '\u0cae\u0ca7\u0ccd\u0caf\u0cbe\u0cb9\u0ccd\u0ca8\u0ca6 \u0c8a\u0c9f',
     dinner: '\u0cb0\u0cbe\u0ca4\u0ccd\u0cb0\u0cbf \u0c8a\u0c9f',
     other: '\u0c87\u0ca4\u0cb0\u0cc6',
-    placeholder: '\u0caa\u0ccd\u0cb0\u0cc0\u0ca4\u0cbf\u0caf\u0cbf\u0c82\u0ca6 \u0ca4\u0caf\u0cbe\u0cb0\u0cbf\u0cb8\u0cbf\u0ca6\u0cc1',
+    placeholder: '\u0caa\u0ccd\u0cb0\u0cc0\u0ca4\u0cbf\u0caf\u0cbf\u0c82\u0ca6 \u0ca4\u0caf\u0cbe\u0cb0\u0cbf\u0cb8\u0cb2\u0cbe\u0c97\u0cbf\u0ca6\u0cc6',
   },
 } as const
 
