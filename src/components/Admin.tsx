@@ -3,7 +3,10 @@ import type { FormEvent } from 'react'
 import { supabase, supabaseIsConfigured } from '../lib/supabase'
 
 type Item = { id: string; name: string; category: string | null; price: number | null; is_available: boolean }
+type DraftItem = { id: string; name: string; category: string; price: string; image: File | null }
+
 const today = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
+const newDraft = (): DraftItem => ({ id: crypto.randomUUID(), name: '', category: '', price: '', image: null })
 
 export function Admin() {
   const client = supabase
@@ -12,10 +15,7 @@ export function Admin() {
   const [signedIn, setSignedIn] = useState(false)
   const [authChecked, setAuthChecked] = useState(false)
   const [date, setDate] = useState(today())
-  const [name, setName] = useState('')
-  const [category, setCategory] = useState('')
-  const [price, setPrice] = useState('')
-  const [image, setImage] = useState<File | null>(null)
+  const [drafts, setDrafts] = useState<DraftItem[]>([newDraft()])
   const [items, setItems] = useState<Item[]>([])
   const [message, setMessage] = useState('')
 
@@ -74,23 +74,39 @@ export function Admin() {
     setMessage('Signed in successfully.')
   }
 
-  const addItem = async (event: FormEvent) => {
+  const updateDraft = (id: string, field: keyof Omit<DraftItem, 'id'>, value: string | File | null) => {
+    setDrafts((current) => current.map((draft) => draft.id === id ? { ...draft, [field]: value } : draft))
+  }
+
+  const publishItems = async (event: FormEvent) => {
     event.preventDefault()
-    setMessage('Saving\u2026')
-    let imageUrl: string | null = null
-    if (image) {
-      const extension = image.name.split('.').pop() || 'jpg'
-      const path = `${date}/${crypto.randomUUID()}.${extension}`
-      const { error } = await client.storage.from('daily-menu-images').upload(path, image, { upsert: false })
-      if (error) return setMessage(error.message)
-      imageUrl = client.storage.from('daily-menu-images').getPublicUrl(path).data.publicUrl
+    if (drafts.some((draft) => !draft.name.trim())) return setMessage('Enter a dish name for every row, or remove the empty rows.')
+    setMessage(`Saving ${drafts.length} menu item${drafts.length === 1 ? '' : 's'}\u2026`)
+
+    const payloads: Array<Record<string, unknown>> = []
+    for (const draft of drafts) {
+      let imageUrl: string | null = null
+      if (draft.image) {
+        const extension = draft.image.name.split('.').pop() || 'jpg'
+        const path = `${date}/${crypto.randomUUID()}.${extension}`
+        const { error } = await client.storage.from('daily-menu-images').upload(path, draft.image, { upsert: false })
+        if (error) return setMessage(`Could not upload ${draft.name}: ${error.message}`)
+        imageUrl = client.storage.from('daily-menu-images').getPublicUrl(path).data.publicUrl
+      }
+      payloads.push({
+        menu_date: date,
+        name: draft.name.trim(),
+        category: draft.category.trim() || null,
+        price: draft.price ? Number(draft.price) : null,
+        image_url: imageUrl,
+        is_available: true,
+      })
     }
-    const { error } = await client.from('daily_menu_items').insert({
-      menu_date: date, name, category: category || null, price: price ? Number(price) : null,
-      image_url: imageUrl, is_available: true,
-    })
+
+    const { error } = await client.from('daily_menu_items').insert(payloads)
     if (error) return setMessage(error.message)
-    setName(''); setCategory(''); setPrice(''); setImage(null); setMessage('Menu item published.')
+    setDrafts([newDraft()])
+    setMessage(`${drafts.length} menu item${drafts.length === 1 ? '' : 's'} published.`)
     await load()
   }
 
@@ -110,5 +126,31 @@ export function Admin() {
   if (!authChecked) return <main className="admin-page"><h1>Checking owner access&hellip;</h1><p>Please wait while we verify your sign-in.</p></main>
   if (!signedIn) return <main className="admin-page"><h1>Owner sign in</h1><p>Use the owner email and password created in Supabase.</p><form onSubmit={signIn}><label>Email<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></label><label>Password<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /></label><button className="button" type="submit">Sign in</button></form><p>{message}</p></main>
 
-  return <main className="admin-page"><div className="admin-heading"><div><p className="section-kicker"><span>OWNER</span>DAILY MENU</p><h1>Publish today&rsquo;s food</h1></div><button className="text-button" onClick={() => client.auth.signOut().then(() => setSignedIn(false))}>Sign out</button></div><label>Menu date<input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></label><form onSubmit={addItem} className="menu-form"><label>Dish name<input value={name} onChange={(e) => setName(e.target.value)} required placeholder="e.g. Veg pulao" /></label><label>Category<input value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Lunch" /></label><label>Price (&#x20b9;)<input type="number" min="0" value={price} onChange={(e) => setPrice(e.target.value)} /></label><label>Photo (optional)<input type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] ?? null)} /></label><button className="button" type="submit">Publish item</button></form><p>{message}</p><div className="admin-items">{items.map((item) => <article key={item.id}><div><strong>{item.name}</strong><span>{item.category}{item.price !== null ? ` \u00b7 \u20b9${item.price}` : ''}</span></div><div><button onClick={() => toggle(item)}>{item.is_available ? 'Available' : 'Hidden'}</button><button className="danger-button" onClick={() => remove(item.id)}>Delete</button></div></article>)}</div></main>
+  return (
+    <main className="admin-page">
+      <div className="admin-heading">
+        <div><p className="section-kicker"><span>OWNER</span>DAILY MENU</p><h1>Publish today&rsquo;s food</h1></div>
+        <button className="text-button" onClick={() => client.auth.signOut().then(() => setSignedIn(false))}>Sign out</button>
+      </div>
+      <label>Menu date<input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></label>
+      <form onSubmit={publishItems} className="menu-form">
+        <div className="menu-form-heading">
+          <div><h2>Add menu items</h2><p>Add several dishes for the selected date, then publish them together.</p></div>
+          <button className="text-button" type="button" onClick={() => setDrafts((current) => [...current, newDraft()])}>+ Add another item</button>
+        </div>
+        {drafts.map((draft, index) => (
+          <div className="menu-form-row" key={draft.id}>
+            <div className="menu-form-row-heading"><strong>Item {index + 1}</strong>{drafts.length > 1 && <button className="text-button danger-button" type="button" onClick={() => setDrafts((current) => current.filter((item) => item.id !== draft.id))}>Remove</button>}</div>
+            <label>Dish name<input value={draft.name} onChange={(e) => updateDraft(draft.id, 'name', e.target.value)} required placeholder="e.g. Veg pulao" /></label>
+            <label>Category<input value={draft.category} onChange={(e) => updateDraft(draft.id, 'category', e.target.value)} placeholder="Lunch" /></label>
+            <label>Price (&#x20b9;)<input type="number" min="0" value={draft.price} onChange={(e) => updateDraft(draft.id, 'price', e.target.value)} /></label>
+            <label>Photo (optional)<input type="file" accept="image/*" onChange={(e) => updateDraft(draft.id, 'image', e.target.files?.[0] ?? null)} /></label>
+          </div>
+        ))}
+        <div className="menu-form-actions"><button className="button" type="submit">Publish {drafts.length} item{drafts.length === 1 ? '' : 's'}</button></div>
+      </form>
+      <p>{message}</p>
+      <div className="admin-items">{items.map((item) => <article key={item.id}><div><strong>{item.name}</strong><span>{item.category}{item.price !== null ? ` \u00b7 \u20b9${item.price}` : ''}</span></div><div><button onClick={() => toggle(item)}>{item.is_available ? 'Available' : 'Hidden'}</button><button className="danger-button" onClick={() => remove(item.id)}>Delete</button></div></article>)}</div>
+    </main>
+  )
 }
