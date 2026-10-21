@@ -3,10 +3,10 @@ import type { FormEvent } from 'react'
 import { supabase, supabaseIsConfigured } from '../lib/supabase'
 
 type Item = { id: string; name: string; category: string | null; price: number | null; is_available: boolean }
-type DraftItem = { id: string; name: string; category: string; price: string; image: File | null }
+type DraftItem = { id: string; name: string; nameKn: string; category: string; categoryKn: string; price: string; image: File | null }
 
 const today = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })
-const newDraft = (): DraftItem => ({ id: crypto.randomUUID(), name: '', category: '', price: '', image: null })
+const newDraft = (): DraftItem => ({ id: crypto.randomUUID(), name: '', nameKn: '', category: '', categoryKn: '', price: '', image: null })
 
 export function Admin() {
   const client = supabase
@@ -97,6 +97,10 @@ export function Admin() {
         menu_date: date,
         name: draft.name.trim(),
         category: draft.category.trim() || null,
+        name_en: draft.name.trim(),
+        name_kn: draft.nameKn.trim() || null,
+        category_en: draft.category.trim() || null,
+        category_kn: draft.categoryKn.trim() || null,
         price: draft.price ? Number(draft.price) : null,
         image_url: imageUrl,
         is_available: true,
@@ -141,8 +145,10 @@ export function Admin() {
         {drafts.map((draft, index) => (
           <div className="menu-form-row" key={draft.id}>
             <div className="menu-form-row-heading"><strong>Item {index + 1}</strong>{drafts.length > 1 && <button className="text-button danger-button" type="button" onClick={() => setDrafts((current) => current.filter((item) => item.id !== draft.id))}>Remove</button>}</div>
-            <label>Dish name<input value={draft.name} onChange={(e) => updateDraft(draft.id, 'name', e.target.value)} required placeholder="e.g. Veg pulao" /></label>
-            <label>Category<input value={draft.category} onChange={(e) => updateDraft(draft.id, 'category', e.target.value)} placeholder="Lunch" /></label>
+            <label>Dish name — English<input value={draft.name} onChange={(e) => updateDraft(draft.id, 'name', e.target.value)} required placeholder="e.g. Veg pulao" /></label>
+            <label>Dish name — Kannada<input value={draft.nameKn} onChange={(e) => updateDraft(draft.id, 'nameKn', e.target.value)} placeholder="Optional Kannada name" /></label>
+            <label>Category — English<input value={draft.category} onChange={(e) => updateDraft(draft.id, 'category', e.target.value)} placeholder="Lunch" /></label>
+            <label>Category — Kannada<input value={draft.categoryKn} onChange={(e) => updateDraft(draft.id, 'categoryKn', e.target.value)} placeholder="Optional Kannada category" /></label>
             <label>Price (&#x20b9;)<input type="number" min="0" value={draft.price} onChange={(e) => updateDraft(draft.id, 'price', e.target.value)} /></label>
             <label>Photo (optional)<input type="file" accept="image/*" onChange={(e) => updateDraft(draft.id, 'image', e.target.files?.[0] ?? null)} /></label>
           </div>

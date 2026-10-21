@@ -17,6 +17,7 @@ const copy = {
     about: 'About',
     dailyCatering: 'Daily catering',
     eventCatering: 'Event catering',
+    todayMenu: "Today's Menu",
     menu: 'Menu',
     products: 'Products',
     gallery: 'Gallery',
@@ -169,6 +170,7 @@ const copy = {
     gallery: 'ಚಿತ್ರಗಳು',
     vision: 'ನಮ್ಮ ದೃಷ್ಟಿ',
     contact: 'ಸಂಪರ್ಕ',
+    todayMenu: '\u0c87\u0c82\u0ca6\u0cbf\u0ca8 \u0cae\u0cc6\u0ca8\u0cc1',
     language: 'English',
     whatsappDirect: 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ',
     eyebrow: 'ಮನೆಯಲ್ಲಿ ತಯಾರಿಸಿದ್ದು · 100% ಶುದ್ಧ ಸಸ್ಯಾಹಾರ',
@@ -387,6 +389,7 @@ function Site() {
           <a href="#home">{t.home}</a>
           <a href="#daily-catering">{t.dailyCatering}</a>
           <a href="#event-catering">{t.eventCatering}</a>
+          <a href="#today-menu">{t.todayMenu}</a>
           <a href="#menu">{t.menu}</a>
           <a href="#products">{t.products}</a>
           <a href="#vision">{t.vision}</a>
@@ -456,7 +459,7 @@ function Site() {
         ))}
       </section>
 
-      <DailyMenu />
+      <DailyMenu language={language} />
 
       <section className="intro section-wrap" id="about">
         <div className="section-kicker"><span>01</span>{t.aboutEyebrow}</div>

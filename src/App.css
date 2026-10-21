@@ -15,6 +15,10 @@
   margin-top: 32px;
 }
 
+.today-menu-groups { display: grid; gap: 38px; margin-top: 34px; }
+.today-menu-group-heading { display: flex; align-items: center; gap: 14px; color: var(--orange, #b95924); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.today-menu-group-line { height: 1px; flex: 1; background: var(--line); }
+
 .today-menu-card {
   overflow: hidden;
   border: 1px solid var(--line);
@@ -31,18 +35,33 @@
   padding: 20px;
 }
 
-.today-menu-card span {
+.today-menu-placeholder {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  min-height: 190px;
+  background: linear-gradient(135deg, #e9e0cc, #d6e0d2);
+  color: var(--green, #204733);
+}
+.today-menu-placeholder span { font-size: 34px; }
+.today-menu-placeholder small { font-size: 12px; }
+.today-menu-card-meta { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.today-menu-card-meta > span {
   display: block;
   color: var(--orange, #b95924);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .1em;
-  text-transform: uppercase;
 }
+.today-menu-card-meta em { color: var(--green, #204733); font-size: 11px; font-style: normal; font-weight: 700; }
 
 .today-menu-card h3 { margin: 8px 0; font-size: 24px; }
 .today-menu-card strong { font-size: 18px; }
+.today-menu-order { display: flex; justify-content: space-between; width: 100%; margin-top: 20px; }
 .menu-status { margin-top: 26px; color: var(--ink-soft, #665f55); }
+.menu-status p { margin: 0 0 8px; }
+.menu-status .button { margin-top: 10px; }
 
 .admin-page {
   box-sizing: border-box;

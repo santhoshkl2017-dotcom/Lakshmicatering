@@ -5,6 +5,7 @@ export type AnalyticsEvent =
   | 'daily_catering_enquiry'
   | 'event_catering_enquiry'
   | 'product_enquiry'
+  | 'today_menu_order'
   | 'language_change'
 
 declare global {
@@ -46,6 +47,6 @@ export function initializeAnalytics(measurementId: string | undefined) {
   document.head.append(script)
 }
 
-export function trackEvent(event: AnalyticsEvent) {
-  window.gtag?.('event', event)
+export function trackEvent(event: AnalyticsEvent, parameters?: Record<string, string>) {
+  window.gtag?.('event', event, parameters)
 }
